@@ -13,18 +13,17 @@ def startStop(initial):
     return
 
 def ping():
-    mask = '172.29.10.'
+    mask = 'xxx.xxx.xxx.' #exemplo mask = '172.29.10.'
     ips = {
-        "AD" : mask + '10',
-        "SERV005" : mask + '16',
-        "ESPELHO AD" : mask + '11',
-        "TS34" : mask + '134',
-        "TS36" : mask + '136'
+        "exemple1" : mask + '10',
+        "exemple2" : mask + '16',
+        "exmple3" : mask + '12' #the last item not need finally ","
     }
 
     log = {}
     for server, ip in ips.items():
-        call = subprocess.run(['ping', '-c', '1', ip], stdout=subprocess.PIPE)
+        command = ['ping', '-n', '1', ip]
+        call = subprocess.run(command, stdout=subprocess.PIPE)
         if call.returncode == 0:
             log[server] = [ip, 'Sucesso']
         else:
@@ -32,8 +31,9 @@ def ping():
     print()
     
     for server, result in sorted(log.items()):
-        print(f"{server} [{result[0]}] = {result[1]}")
+        print("{:<30} {:<20} {:<1}".format(server, result[0], result[1]))
 
+    print()
     msg = "Deseja realizar a verificação novamente? [y/n]"
     return startStop(msg);
     
