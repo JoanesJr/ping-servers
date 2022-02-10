@@ -15,8 +15,8 @@ def startStop(initial):
 def ping():
     mask = 'xxx.xxx.xxx.' #exemplo mask = '172.29.10.'
     ips = {
-        "exemple1" : mask + '10',
-        "exemple2" : mask + '16',
+        "exemple1" : mask + '10', # "AD" : mask + '10',
+        "exemple2" : mask + '16', # "FILES SERVER - CPD" : mask + '15',
         "exmple3" : mask + '12' #the last item not need finally ","
     }
 
